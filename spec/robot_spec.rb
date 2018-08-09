@@ -9,7 +9,7 @@ Capybara.app = RobotExampleApp
 describe "a robot interacting with an app", type: :feature do
   it "can fill in a text box" do
     andy = Robot.new
-    andy.knows("name" => "Steve")
+    andy.knows("name" => "Andy")
     andy.exchange_knowledge_with("/")
     expect(page).to have_content "name Andy"
   end
