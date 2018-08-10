@@ -11,6 +11,13 @@ describe "a robot interacting with an app", type: :feature do
     andy = Robot.new
     andy.knows("name" => "Andy")
     andy.exchange_knowledge_with("/")
-    expect(page).to have_content "name Andy"
+    expect(page).to have_content "name-text Andy"
+  end
+
+  it "can select from a select box" do
+    andy = Robot.new
+    andy.knows("name" => "Andy")
+    andy.exchange_knowledge_with("/")
+    expect(page).to have_content "name-select Andy"
   end
 end
