@@ -14,7 +14,9 @@ class Robot
 
   def exchange_knowledge_with(app)
     visit(app)
-    @things_we_know.each { |key, value| fill_in key, with: value }
+    page.find_all("[data-question]").each do |question|
+      fill_in question["data-question"], with: @things_we_know[question["data-question"]] if @things_we_know.has_key?(question["data-question"])
+    end
     click_button "Submit"
   end
 end
